@@ -5,6 +5,10 @@ module.exports = function(eleventyConfig) {
     const { publication } = eleventyConfig.globalData
     const { license } = publication
 
+    if (!license.name) {
+      return ``
+    }
+
     let licenseText = ''
 
     const licenseAbbreviation = license.abbreviation || license.name
