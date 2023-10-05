@@ -89,6 +89,8 @@ module.exports = (eleventyConfig) => {
       return `${title}: ${subtitle} ${readingLine}`
     } else if (subtitle) {
       return `${title}: ${subtitle}`
+    } else {
+      return `${title}`
     }
   }
 
