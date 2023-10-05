@@ -14,6 +14,11 @@ module.exports = function (eleventyConfig, options = {}) {
     const config = iiifConfig(eleventyConfig)
     const figureFactory = new FigureFactory(config)
 
+    /**
+     * Add IIIFConfig to global data
+     */
+    eleventyConfig.globalData.iiifConfig = config
+
     if (!eleventyConfig.globalData.figures || !eleventyConfig.globalData.figures.figure_list) {
       logger.error('The figure list is not defined or is null.')
       return
@@ -37,11 +42,6 @@ module.exports = function (eleventyConfig, options = {}) {
         ['id', 'errors']
       )
     }
-
-    /**
-     * Add IIIFConfig to global data
-     */
-    eleventyConfig.globalData.iiifConfig = config
 
     /**
      * Update global figures data to only have properties for Quire shortcodes
