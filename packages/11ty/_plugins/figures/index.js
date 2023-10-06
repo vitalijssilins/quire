@@ -14,11 +14,6 @@ module.exports = function (eleventyConfig, options = {}) {
     const config = iiifConfig(eleventyConfig)
     const figureFactory = new FigureFactory(config)
 
-    if (!eleventyConfig.globalData.figures || !eleventyConfig.globalData.figures.figure_list) {
-      logger.error('The figure list is not defined or is null.')
-      return
-    }
-
     const { figure_list: figureList } = eleventyConfig.globalData.figures
 
     const figures = await Promise.all(
